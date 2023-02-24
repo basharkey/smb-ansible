@@ -1,0 +1,12 @@
+---
+- name: Copy nftables.conf
+  copy:
+    src: nftables.conf
+    dest: /etc/nftables.conf
+    mode: 0755
+
+- name: Restart and enable nftables service
+  systemd:
+    name: nftables.service
+    state: restarted
+    enabled: yes
